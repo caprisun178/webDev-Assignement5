@@ -39,11 +39,11 @@ function createNewTemplate(parent, repoDetails){
     const repoInfo = document.createElement("div");
     repoInfo.classList.add("repo-info");
     // create all the labels and values and append to repoInfo
+    const descRow   = document.createElement()
     const description = document.createElement("label");
     description.textContent = 'Description:';
     const descValue = document.createElement('p');
     descValue.textContent = repoDetails["description"]
-    
 
     const creationDate= document.createElement("label");
     creationDate.textContent = 'Creation Date:';
