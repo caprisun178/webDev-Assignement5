@@ -23,3 +23,47 @@ async function getRepos() {
 // for each repo found create a new div to display data
 // ensure we do not exceed 10 repos, 4 per row would look nice
 
+
+// reused function for creating the template based on passed in params
+function createNewTemplate(parent, repoDetails){
+    //create new repo card
+    const repoCard = document.createElement("div");
+    repoCard.classList.add("repo-card");
+
+    //create new repo header and assing the name to the component
+    const repoHeader = document.createElement("h3");
+    repoHeader.textContent = repoDetails["name"];
+    repoHeader.id = "repo-name";
+
+    //create new repo info section of the card
+    const repoInfo = document.createElement("div");
+    repoInfo.classList.add("repo-info");
+    // create all the labels and values and append to repoInfo
+    const description = document.createElement("label");
+    description.textContent = 'Description:';
+    const descValue = document.createElement('p');
+    descValue.textContent = repoDetails["description"]
+    
+
+    const creationDate= document.createElement("label");
+    creationDate.textContent = 'Creation Date:';
+    const creationValue = document.createElement('p');
+    creationValue.textContent = repoDetails["createdDate"]
+
+    const updateDate = document.createElement("label");
+    updateDate.textContent = 'Updated Date:'
+    const updateValue = document.createElement('p');
+    updateValue.textContent = repoDetails["updatedDate"]
+
+    const languages = document.createElement("label");
+    languages.textContent = 'Languages:'
+    const langValue = document.createElement('p');
+    langValue.textContent = repoDetails["languages"]
+
+    const watchers = document.createElement("label");
+    watchers.textContent = 'Watchers:'
+    const watchersValue = document.createElement('p');
+    watchersValue.textContent = repoDetails["watchers"]
+
+    
+}

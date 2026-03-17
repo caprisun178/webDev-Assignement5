@@ -35,10 +35,24 @@ body{
   display: flex;
   gap: 1rem;
   padding: 1rem;
-  background-color: ;
+  background-color: gray;
   align-items: flex-start;
 }
 
 .repo-name{
-    
+    text-decoration: underline;
+    color: #2323ff;
+}
+
+.repo-info label{
+    color: white;
+}
+
+.repo-info p{
+    color: lightskyblue;
+}
+
+.repo-info-row{
+    display: flex;
+    flex-direction: row;
 }
