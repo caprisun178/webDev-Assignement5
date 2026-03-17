@@ -1,0 +1,44 @@
+
+body{
+    background-color: #1b1b1b;
+}
+
+#header-bar{
+    overflow: hidden;
+    background-color: black;
+}
+
+#header-bar h1{
+    color: lightskyblue;
+    text-align: center;
+}
+
+#search-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #242424;
+}
+#search-bar p{
+    color: #9500ff;
+    font-weight: bold;
+}
+
+
+.repo-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.repo-card{
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: ;
+  align-items: flex-start;
+}
+
+.repo-name{
+    
+}
