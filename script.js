@@ -43,7 +43,7 @@ function createNewTemplate(parent, repoDetails) {
     const repoHeader = document.createElement("a");
     repoHeader.textContent = repoDetails.name;
     repoHeader.classList.add("repo-name");
-    repoHeader.href = repoDetails.url;
+    repoHeader.href = repoDetails.html_url;
 
     // append icon and link
     headerRow.appendChild(icon);
