@@ -68,10 +68,10 @@ function createNewTemplate(parent, repoDetails) {
 
 async function getRepos(username) {
     try {
-        const res = await fetch(`/api/repos/${username}`);
+        const res = await fetch(`https://api.github.com/users/${username}/repos`);
 
         if (!res.ok) {
-            throw new Error("Could not get repos");
+            throw new Error("User not found or request failed");
         }
 
         const repos = await res.json();
@@ -89,6 +89,7 @@ async function getRepos(username) {
 
             createNewTemplate(repoRows[rowIndex], repo);
         });
+
     } catch (err) {
         clearRows();
 
@@ -100,6 +101,7 @@ async function getRepos(username) {
         console.error(err);
     }
 }
+
 
 searchInput.addEventListener("change", function () {
     const username = searchInput.value.trim();
