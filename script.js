@@ -3,6 +3,17 @@
 const searchInput = document.querySelector("#search-bar input");
 const repoRows = document.querySelectorAll(".repo-row");
 
+async function getLanguages(url) {
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+
+        return Object.keys(data).join(", ");
+    } catch {
+        return "N/A";
+    }
+}
+
 function clearRows() {
     repoRows.forEach(row => {
         row.innerHTML = "";
@@ -25,7 +36,7 @@ function createInfoRow(labelText, valueText) {
     return row;
 }
 
-function createNewTemplate(parent, repoDetails) {
+async function createNewTemplate(parent, repoDetails) {
     const repoCard = document.createElement("div");
     repoCard.classList.add("repo-card");
 
@@ -58,7 +69,8 @@ function createNewTemplate(parent, repoDetails) {
     repoInfo.appendChild(createInfoRow("Creation Date: ", createdDate));
     const updatedDate = new Date(repoDetails.created_at).toLocaleDateString();
     repoInfo.appendChild(createInfoRow("Updated Date: ", updatedDate));
-    repoInfo.appendChild(createInfoRow("Language: ", repoDetails.language));
+    const languages = await getLanguages(repoDetails.languages_url);
+    repoInfo.appendChild(createInfoRow("Languages: ", languages));  
     repoInfo.appendChild(createInfoRow("Watchers: ", repoDetails.watchers));
 
     repoCard.appendChild(headerRow);
@@ -102,6 +114,7 @@ async function getRepos(username) {
         console.error(err);
     }
 }
+
 
 
 searchInput.addEventListener("change", function () {
