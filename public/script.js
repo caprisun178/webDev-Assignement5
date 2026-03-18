@@ -29,20 +29,38 @@ function createNewTemplate(parent, repoDetails) {
     const repoCard = document.createElement("div");
     repoCard.classList.add("repo-card");
 
-    const repoHeader = document.createElement("h3");
+    const headerRow = document.createElement("div");
+    headerRow.classList.add("repo-header-row")
+
+    // GitHub icon
+    const icon = document.createElement("img");
+    icon.src = "github-brands-solid.png";
+    icon.alt = "GitHub";
+    icon.classList.add("repo-icon");
+
+
+    // Repo name ( and link)
+    const repoHeader = document.createElement("a");
     repoHeader.textContent = repoDetails.name;
     repoHeader.classList.add("repo-name");
+    repoHeader.href = repoDetails.url;
+
+    // append icon and link
+    headerRow.appendChild(icon);
+    headerRow.appendChild(repoHeader);
 
     const repoInfo = document.createElement("div");
     repoInfo.classList.add("repo-info");
 
     repoInfo.appendChild(createInfoRow("Description: ", repoDetails.description));
-    repoInfo.appendChild(createInfoRow("Creation Date: ", repoDetails.created_at));
-    repoInfo.appendChild(createInfoRow("Updated Date: ", repoDetails.updated_at));
+    const createdDate = new Date(repoDetails.created_at).toLocaleDateString();
+    repoInfo.appendChild(createInfoRow("Creation Date: ", createdDate));
+    const updatedDate = new Date(repoDetails.created_at).toLocaleDateString();
+    repoInfo.appendChild(createInfoRow("Updated Date: ", updatedDate));
     repoInfo.appendChild(createInfoRow("Language: ", repoDetails.language));
     repoInfo.appendChild(createInfoRow("Watchers: ", repoDetails.watchers));
 
-    repoCard.appendChild(repoHeader);
+    repoCard.appendChild(headerRow);
     repoCard.appendChild(repoInfo);
 
     parent.appendChild(repoCard);

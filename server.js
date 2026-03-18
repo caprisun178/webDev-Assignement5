@@ -26,7 +26,8 @@ app.get("/api/repos/:username", async (req, res) => {
             created_at: repo.created_at,
             updated_at: repo.updated_at,
             language: repo.language,
-            watchers: repo.watchers
+            watchers: repo.watchers,
+            url: repo.html_url
         }));
 
         res.json(cleanedData);
