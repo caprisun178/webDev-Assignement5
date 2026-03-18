@@ -44,6 +44,7 @@ function createNewTemplate(parent, repoDetails) {
     repoHeader.textContent = repoDetails.name;
     repoHeader.classList.add("repo-name");
     repoHeader.href = repoDetails.html_url;
+    repoHeader.target= "_blank";
 
     // append icon and link
     headerRow.appendChild(icon);
